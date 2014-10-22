@@ -2,16 +2,19 @@
 
 table {
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 td,th {
-  text-align: center;
   padding: 5px;
+  border:1px solid #ccc;
+  text-align: center
 }
 
+
 th {
+  text-align: center;
   background: @brand-primary;
   color: #fff;
   font-weight: 300
@@ -19,4 +22,12 @@ th {
 
 tbody {
   border: 1px solid #000;
+}
+
+tr:nth-child(odd) {
+  background-color: @gray-lightest
+}
+
+.buttons {
+  text-align:right
 }
