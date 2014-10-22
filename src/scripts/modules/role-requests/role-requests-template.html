@@ -1,0 +1,35 @@
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Maintainer</th>
+      <th>Copyright Holder</th>
+      <th>Editor</th>
+      <th>Translator</th>
+      <th>Requester</th>
+      <th>Date</td>
+      <th>License</th>
+    </tr>
+  <thead>
+  <tbody>
+    {{#each this}}
+    <tr>
+      <td><input type="checkbox"/></td>
+      <td>{{title}}</td>
+      <td>{{author}}</td>
+      <td>{{author}}</td>
+      <td>{{copyrightHolder}}</td>
+      <td>{{editor}}</td>
+      <td>{{translator}}</td>
+      <td>{{requester}}</td>
+      <td>{{date date}}</td>
+      <td>{{license}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<input type="submit" value="Accept" class="btn"/>
+<input type="submit" value="Reject" class="btn"/>
