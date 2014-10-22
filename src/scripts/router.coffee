@@ -23,6 +23,9 @@ define (require) ->
       @route 'contents', 'contents', () ->
         @appView.render('contents')
 
+      @route 'role-requests', 'role-requests', () ->
+        @appView.render('role-requests')
+
       # Match and extract uuid and page numbers separated by a colon
       @route linksHelper.componentRegEx, 'media', (uuid, version, page) ->
         uuid = uuid.toLowerCase()
