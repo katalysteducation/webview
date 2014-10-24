@@ -32,26 +32,21 @@ define (require) ->
       if target.hasClass('accept')
         hasAccepted = true
 
-      data = []
+      roles = "roles": [{
+        "author" : author,
+        "maintainer" : maintainer,
+        "copyrightHolder" : copyrightHolder,
+        "editor" : editor,
+        "translator" : translator
+      }]
 
-      checked.each () ->
-        roles = "roles": [{
-          "author" : author,
-          "maintainer" : maintainer,
-          "copyrightHolder" : copyrightHolder,
-          "editor" : editor,
-          "translator" : translator
+      license = "license": [{
+        "hasAccepted", hasAccepted
         }]
 
-        license = "license": [{
-          "hasAccepted", hasAccepted
-          }]
-
-        data.push(roles, license)
-
+      data = []
+      checked.each () -> data.push(roles, license)
       json = JSON.stringify(data)
-
-      console.log json
 
       $.ajax
         type: 'POST'
