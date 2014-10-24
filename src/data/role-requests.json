@@ -1,26 +1,32 @@
 [{
     "title" : "Role Test",
-    "author": "+",
-    "maintainer" : "+",
-    "requester" : "Michelle Webb",
-    "date" : "June 15, 2009",
-    "license" : "Attribution License"
+    "license" : "Attribution License",
+    "roles" : [
+      {"author":"add author"},
+      {"maintainer" : "add maintainer"},
+      {"copyrightholder" : " "},
+      {"editor" : " "},
+      {"translator" : " "}
+    ],
+    "requester": "Michelle Webb",
+    "date" : "Dec 18 2014"
   },
   {
     "title" : "Role Test 2",
-    "author": "+",
-    "maintainer" : "+",
-    "requester" : "John Smith",
-    "date" : "June 15, 2012",
-    "license" : "Attribution License"
+    "license" : "Attribution License",
+    "roles" : [
+      {"author":"+"},
+      {"maintainer" : "-"},
+      {"copyrightholder" : " "},
+      {"editor" : " "},
+      {"translator" : " "}
+    ],
+    "requester" : "Dave Webb",
+    "date": "Sep 13 2014"
   },
 
   {
     "title" : "Role Test 3",
-    "author": "+",
-    "maintainer" : "+",
-    "requester" : "Bill Johnson",
-    "date" : "June 15, 2014",
     "license" : "Attribution License"
   }
 ]

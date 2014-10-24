@@ -1,4 +1,5 @@
-<table class="table">
+<form>
+  <table class="table">
   <thead>
     <tr>
       <th>&nbsp;</th>
@@ -9,28 +10,29 @@
       <th>Editor</th>
       <th>Translator</th>
       <th>Requester</th>
-      <th>Date</td>
+      <th>Date</th>
       <th>License</th>
     </tr>
   <thead>
   <tbody>
-    {{#each this}}
+    {{#this}}
     <tr>
-      <td><input type="checkbox"/></td>
-      <td>{{title}}</td>
-      <td>{{author}}</td>
-      <td>{{author}}</td>
-      <td>{{copyrightHolder}}</td>
-      <td>{{editor}}</td>
-      <td>{{translator}}</td>
-      <td>{{requester}}</td>
+      <td><input type="checkbox" class="checkbox"/></td>
+      <td class="title">{{title}}</td>
+      <td class="author">{{#roles}} {{author}}{{/roles}}</td>
+      <td class="maintainer">{{#roles}}{{maintainer}}{{/roles}}</td>
+      <td class="copyrightHolder">{{#roles}}{{copyrightHolder}}{{/roles}}</td>
+      <td class="editor">{{#roles}}{{editor}}{{/roles}}</td>
+      <td class="translator">{{#roles}}{{translator}}{{/roles}}</td>
+      <td> {{requester}} </td>
       <td>{{date date}}</td>
-      <td>{{license}}</td>
+      <td class="license">{{license}}</td>
     </tr>
-    {{/each}}
+    {{/this}}
   </tbody>
 </table>
 <div class="buttons">
-  <input type="submit" value="Accept" class="btn"/>
-  <input type="submit" value="Reject" class="btn"/>
+  <input type="button" value="Accept" class="btn accept"/>
+  <input type="button" value="Reject" class="btn reject"/>
 </buttons>
+</form>
