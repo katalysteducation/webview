@@ -55,6 +55,7 @@ define (require) ->
       .done () =>
         # Close editor
         @model.set('editable', false)
+        
 
         # Redirect to workspace
         router.navigate('workspace', {trigger: true})
@@ -63,7 +64,7 @@ define (require) ->
       $('.modal-backdrop').remove() # HACK: Ensure bootstrap modal backdrop is removed
 
     toggleBook: (e) ->
-      if $(e.currentTarget).is(':checked') #AMW performance improvements?
+      if $(e.currentTarget).is(':checked')
         # Ensure everything else is checked
         @$el.find('.publish-contents').find('input').prop('checked', true)
 

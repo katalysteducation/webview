@@ -1,32 +1,37 @@
 [{
-    "title" : "Role Test",
-    "license" : "Attribution License",
-    "roles" : [
-      {"author":"add author"},
-      {"maintainer" : "add maintainer"},
-      {"copyrightholder" : " "},
-      {"editor" : " "},
-      {"translator" : " "}
-    ],
-    "requester": "Michelle Webb",
-    "date" : "Dec 18 2014"
-  },
-  {
-    "title" : "Role Test 2",
+    "title" : "CIVIS Project - UPRM",
     "license" : "Attribution License",
     "roles" : [
       {"author":"+"},
-      {"maintainer" : "-"},
+      {"maintainer" : ""},
       {"copyrightholder" : " "},
       {"editor" : " "},
-      {"translator" : " "}
+      {"translator" : " "},
+      {"hasAccepted": " "}
+    ],
+    "requester": "Michelle Webb",
+    "date" : "Dec 18 2014",
+    "url" : "/contents/ffef104a-8aac-46f1-a8fd-c20a315e6d7a@4.2/CIVIS_Project_-_UPRM"
+  },
+  {
+    "title" : "Understanding Your French Horn",
+    "license" : "Attribution License",
+    "roles" : [
+      {"author":""},
+      {"maintainer" : "+"},
+      {"copyrightholder" : " "},
+      {"editor" : " "},
+      {"translator" : " "},
+      {"hasAccepted": " "}
     ],
     "requester" : "Dave Webb",
-    "date": "Sep 13 2014"
+    "date": "Sep 13 2014",
+    "url" : "/contents/eb7a548e-9355-4035-bbb5-04398393bf28@4.31/Understanding_Your_French_Horn"
   },
 
   {
-    "title" : "Role Test 3",
-    "license" : "Attribution License"
+    "title" : "Arts and Culture Grade 9",
+    "license" : "Attribution License",
+    "url" : "/contents/e0617ec6-8a58-41d7-95cd-604f8c3fcea2@1.1/Arts_and_Culture_Grade_9"
   }
 ]

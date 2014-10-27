@@ -3,14 +3,12 @@
   <thead>
     <tr>
       <th>&nbsp;</th>
-      <th>Title</th>
+      <th>Content</th>
       <th>Author</th>
       <th>Maintainer</th>
       <th>Copyright Holder</th>
       <th>Editor</th>
       <th>Translator</th>
-      <th>Requester</th>
-      <th>Date</th>
       <th>License</th>
     </tr>
   <thead>
@@ -18,14 +16,15 @@
     {{#this}}
     <tr>
       <td><input type="checkbox" class="checkbox"/></td>
-      <td class="title">{{title}}</td>
+      <td class="title">
+        {{title}}<br/>
+        <span class="view-content"><a href="{{url}}" target="_blank">View Content</a></span>
+        </td>
       <td class="author">{{#roles}} {{author}}{{/roles}}</td>
       <td class="maintainer">{{#roles}}{{maintainer}}{{/roles}}</td>
       <td class="copyrightHolder">{{#roles}}{{copyrightHolder}}{{/roles}}</td>
       <td class="editor">{{#roles}}{{editor}}{{/roles}}</td>
       <td class="translator">{{#roles}}{{translator}}{{/roles}}</td>
-      <td> {{requester}} </td>
-      <td>{{date date}}</td>
       <td class="license">{{license}}</td>
     </tr>
     {{/this}}

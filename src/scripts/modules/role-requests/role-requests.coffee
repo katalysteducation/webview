@@ -11,14 +11,16 @@ define (require) ->
     collection: RoleRequests
 
     events:
-      'click .accept': 'acceptOrRejectRoleAndLicense'
-      'click .reject': 'acceptOrRejectRoleAndLicense'
+      'click .accept, .reject': 'acceptOrRejectRoleAndLicense'
 
     initialize: () ->
       @listenTo(@collection,'reset',@render)
 
+
     acceptOrRejectRoleAndLicense: (e) ->
       e.preventDefault()
+
+
       target = $(e.currentTarget)
       checked = $('tr').filter(':has(:checkbox:checked)')
       title = checked.find('.title').text()
@@ -45,6 +47,7 @@ define (require) ->
         }]
 
       data = []
+
       checked.each () -> data.push(roles, license)
       json = JSON.stringify(data)
 
@@ -57,3 +60,4 @@ define (require) ->
         console.log 'success'
       .fail () ->
         console.log 'error'
+        
