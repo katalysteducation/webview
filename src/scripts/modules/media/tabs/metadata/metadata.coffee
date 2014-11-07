@@ -41,6 +41,12 @@ define (require) ->
       return model
 
     editable:
+      '.teachersEdition':
+        value: ''
+        type: 'textinput'
+        class: 'meta-input'
+
+
       '.language > select':
         value: 'language'
         type: 'select2'

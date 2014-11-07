@@ -30,8 +30,9 @@ define (require) ->
       stop: ($editable, selector, property, options) ->
         $editable.text(@getProperty(property))
       start: ($editable, selector, property, options) ->
-        $input = $('<input type="text" />')
+        $input = $('<input type="text"/>')
         $input.attr('placeholder', "Enter a #{property}").val(@getProperty(property))
+        $input.addClass(options.class)
         $editable.html($input)
         $input.on 'change', () => setValue.call(@, property, $input.val(), options)
 
