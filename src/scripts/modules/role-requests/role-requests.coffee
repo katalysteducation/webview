@@ -19,8 +19,6 @@ define (require) ->
 
     acceptOrRejectRoleAndLicense: (e) ->
       e.preventDefault()
-
-
       target = $(e.currentTarget)
       checked = $('tr').filter(':has(:checkbox:checked)')
       title = checked.find('.title').text()
@@ -60,4 +58,3 @@ define (require) ->
         console.log 'success'
       .fail () ->
         console.log 'error'
-        
