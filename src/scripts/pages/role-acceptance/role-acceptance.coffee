@@ -3,13 +3,13 @@ define (require) ->
   HeaderView = require('cs!modules/header/header')
   FooterView = require('cs!modules/footer/footer')
   template = require('hbs!./role-acceptance-template')
-  RoleAcceptancesView = require('cs!modules/role-acceptance/role-acceptances')
+  RoleAcceptancesView = require('cs!modules/role-acceptance/role-acceptance')
 
   require('less!./role-acceptance')
 
   return class RoleAcceptance extends BaseView
     template: template
-    
+
 
     templateHelpers: () ->
       pageTitle: 'Role Acceptance'
