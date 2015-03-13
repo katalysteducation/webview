@@ -99,11 +99,14 @@ define (require) ->
       if data.length is 1
         @newPage(data[0].value)
       else
-        _.each data, (input) =>
-          if input.name isnt 'title'
-            @model.add({id: input.name, title: input.value})
-            @model.setPage(input.name)
-            @updateUrl()
+        # HACK. seems to stop this next part from blocking the modal hide
+        setTimeout () =>
+          _.each data, (input) =>
+            if input.name isnt 'title'
+              @model.add({id: input.name, title: input.value})
+              @model.setPage(input.name)
+              @updateUrl()
+        , 0
 
       $('.modal-backdrop').remove() # HACK: Ensure bootstrap modal backdrop is removed
 
