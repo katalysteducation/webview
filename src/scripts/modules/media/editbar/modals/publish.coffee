@@ -16,7 +16,6 @@ define (require) ->
   return class PublishModal extends BaseView
     key = []
     template: template
-
     regions:
       contents: '.publish-contents'
 
@@ -31,9 +30,7 @@ define (require) ->
 
     initialize: () ->
       super()
-
       @listenTo(@model, 'removeNode moveNode add:contents change:title', @render)
-
 
     onRender: () ->
       @regions.contents.show(new PublishedListSectionView({model: @model}))
@@ -94,6 +91,9 @@ define (require) ->
       key[e.keyCode] = true
       #ctrl+alt+shift+l+i
       if key[16] and key[17] and key[18] and key[73] and key[76]
+        licenseCheckbox = @$el.find('input[name="license"]')
+        if licenseCheckbox.is(':checked')
+          licenseCheckbox.prop('checked', false)
         $('#license-modal').modal('show')
 
     resetKeySequence: (e) ->
