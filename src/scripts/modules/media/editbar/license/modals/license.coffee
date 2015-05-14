@@ -29,9 +29,9 @@ define (require) ->
     setLicense: () ->
       licenses = @collection.models
       selectedValue = @$el.find('input[name="license"]:checked').val()
-      selectedLicense = undefined
+      selectedLicense = ''
       _.each licenses, (license) ->
-        if license.get('abbr') is selectedValue
+        if license.get('code') is selectedValue
           selectedLicense = license
       return selectedLicense
 
@@ -44,4 +44,3 @@ define (require) ->
       license.setLicense(licenseModel.url = selectedLicense.get('url'))
       license.setLicense(licenseModel.version = selectedLicense.get('version'))
       @parent.model.set('changed', true)
-      @parent.model.save()
