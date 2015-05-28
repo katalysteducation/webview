@@ -10,7 +10,7 @@
           {{#each this}}
             {{#if this.isValidForPublication}}
              <label>
-              <input type="radio" value="{{this.code}}" name="license" {{#is this.code 'by'}}checked{{/is}}/>
+              <input type="radio" value="{{this.code}}" name="licenses" {{#is this.code 'by'}}checked{{/is}}/>
               <a href="{{this.url}}">{{this.name}}</a>
              </label>
             {{/if}}

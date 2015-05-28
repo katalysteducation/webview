@@ -14,13 +14,14 @@ define (require) ->
       title: @parent.model.get('title')
 
     events: {
-      'click input[name="license"]': 'setLicense'
+      'click input[name="licenses"]': 'setLicense'
       'click .btn-submit': 'close'
     }
 
     initialize: (options) ->
       @listenTo(@collection, 'reset', @render)
       @parent = options.parent
+      console.log @parent.model.get('contents').models
 
     close: () ->
       @changeLicense()
@@ -28,7 +29,7 @@ define (require) ->
 
     setLicense: () ->
       licenses = @collection.models
-      selectedValue = @$el.find('input[name="license"]:checked').val()
+      selectedValue = @$el.find('input[name="licenses"]:checked').val()
       selectedLicense = ''
       _.each licenses, (license) ->
         if license.get('code') is selectedValue
