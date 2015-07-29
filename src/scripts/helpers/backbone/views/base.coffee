@@ -84,6 +84,16 @@ define (require) ->
         $('link[rel="canonical"]').remove()
         $('head').append("<link rel=\"canonical\" href=\"#{canonical}\" />") if canonical
 
+      next = @next?() or @next
+      prev = @prev?() or @prev
+      if next isnt undefined
+        $('link[rel="next"]').remove()
+        $('head').append("<link rel=\"next\" href=\"#{next}\" />") if next
+      if prev isnt undefined
+        $('link[rel="prev"]').remove()
+        $('head').append("<link rel=\"prev\" href=\"#{prev}\" />") if prev
+
+
       #Open graph tags for social media and description tags for SEO
       @addMetaTags()
 

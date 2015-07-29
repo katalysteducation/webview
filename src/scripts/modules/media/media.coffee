@@ -24,6 +24,20 @@ define (require) ->
       else
         return null
 
+    next: () ->
+      nextPage = @model.getNextPageNumber()
+      if nextPage
+        return linksHelper.getPath('contents', {model: @model, page: nextPage})
+      else
+        return null
+
+    prev: () ->
+      prevPage = @model.getPreviousPageNumber()
+      if prevPage
+        return linksHelper.getPath('contents', {model: @model, page: prevPage})
+      else
+        return null
+
     template: template
     regions:
       media: '.media'

@@ -14,6 +14,8 @@ define (require) ->
   return class ContentsPage extends BaseView
     template: template
     pageTitle: 'Content Library'
+    next: () -> null
+    prev: () -> null
     canonical: () -> null if not @uuid
     summary: 'OpenStax Content Library'
     description: 'Search for free, online textbooks.'
