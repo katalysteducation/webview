@@ -15,7 +15,6 @@ define (require) ->
     pageTitle: 'Support OpenStax CNX'
     next: null
     prev: null
-    canonical: null
     summary: 'Donate to OpenStax CNX'
     description: 'Donate to OpenStax CNX'
 

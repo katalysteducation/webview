@@ -11,7 +11,6 @@ define (require) ->
     pageTitle: 'My Workspace'
     next: null
     prev: null
-    canonical: null
     summary: 'Add new content or find content and derive a copy for editing.'
     description: 'Create free educational content, or derive a copy for editing.'
 

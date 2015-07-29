@@ -11,7 +11,6 @@ define (require) ->
     templateHelpers: () -> {error: @error}
     next: null
     prev: null
-    canonical: null
 
     regions:
       find: '#find-content'

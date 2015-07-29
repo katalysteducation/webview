@@ -11,7 +11,6 @@ define (require) ->
     template: template
     next: null
     prev: null
-    canonical: null
     summary: 'Search for textbooks'
     description: 'Search from thousands of free, online textbooks.'
 
