@@ -83,11 +83,16 @@ define (require) ->
       if next isnt undefined
         $('link[rel="next"]').remove()
         $('head').append("<link rel=\"next\" href=\"#{next}\" />") if next
+      # Can't just set next to null/undef in nav, i think b/c of mutation
+      if next is 'none'
+        $('link[rel="next"]').remove()
 
       prev = @prev?() or @prev
-      if prev isnt undefined
+      if prev isnt undefined and prev isnt 'none'
         $('link[rel="prev"]').remove()
         $('head').append("<link rel=\"prev\" href=\"#{prev}\" />") if prev
+      if prev is 'none'
+        $('link[rel="prev"]').remove()
 
 
       #Open graph tags for social media and description tags for SEO

@@ -8,14 +8,20 @@ define (require) ->
 
   return class MediaNavView extends BaseView
 
-    #desired behavior if no prev/next page?
     next: () ->
-      next = @model.getNextPageNumber()
-      return linksHelper.getPath('contents', {model: @model, page: next})
+      if @model.isBook()
+        next = @model.getNextPageNumber()
+        if next isnt @model.getTotalPages()
+          return linksHelper.getPath('contents', {model: @model, page: next})
+      return 'none'
 
     prev: () ->
-      prev = @model.getPreviousPageNumber()
-      return linksHelper.getPath('contents', {model: @model, page: prev})
+      if @model.isBook()
+        prev = @model.getPreviousPageNumber()
+        cur = @model.getPageNumber()
+        if cur isnt 1
+          return linksHelper.getPath('contents', {model: @model, page: prev})
+      return 'none'
 
     template: template
     templateHelpers: () ->
