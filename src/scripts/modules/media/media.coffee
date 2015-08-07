@@ -31,7 +31,7 @@ define (require) ->
       editbar: '.editbar'
 
     summary:() -> @updateSummary()
-    description: () -> @updateSummary()
+    description: () -> @updateDescription()
 
     events:
       'keydown .media-title > .title input': 'checkKeySequence'
@@ -73,6 +73,14 @@ define (require) ->
       else
         return 'An OpenStax CNX book'
 
+
+    updateDescription: () ->
+      if @model.get('currentPage')?.get('abstract')?
+        console.log('yay new description')
+        return @model.get('currentPage').get('abstract').replace(/(<([^>]+)>)/ig, "")
+      else
+        console.log('same ol')
+        return @updateSummary()
 
     updateUrl: () ->
       components = linksHelper.getCurrentPathComponents()
