@@ -53,6 +53,7 @@ define (require) ->
       @listenTo(@model, 'change:error', @displayError)
       @listenTo(@model, 'change:editable', @toggleEditor)
       @listenTo(@model, 'change:title change:currentPage change:currentPage.loaded', @updateUrl)
+      @listenTo(@model, 'change:title change:currentPage change:currentPage.loaded', @updatePageInfo)
       @listenTo(@model, 'change:abstract', @updateSummary)
 
     onRender: () ->
@@ -75,11 +76,9 @@ define (require) ->
 
 
     updateDescription: () ->
-      if @model.get('currentPage')?.get('abstract')?
-        console.log('yay new description')
+      if @model.get('currentPage')?.get('abstract')? and @model.get('currentPage').get('abstract').replace(/(<([^>]+)>)/ig, "") isnt ''
         return @model.get('currentPage').get('abstract').replace(/(<([^>]+)>)/ig, "")
       else
-        console.log('same ol')
         return @updateSummary()
 
     updateUrl: () ->
