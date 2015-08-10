@@ -76,7 +76,8 @@ define (require) ->
 
 
     updateDescription: () ->
-      if @model.get('currentPage')?.get('abstract')? and @model.get('currentPage').get('abstract').replace(/(<([^>]+)>)/ig, "") isnt ''
+      if @model.get('currentPage')?.get('abstract')? and
+      @model.get('currentPage').get('abstract').replace(/(<([^>]+)>)/ig, "") isnt ''
         return @model.get('currentPage').get('abstract').replace(/(<([^>]+)>)/ig, "")
       else
         return @updateSummary()
