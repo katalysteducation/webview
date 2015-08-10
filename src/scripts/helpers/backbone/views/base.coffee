@@ -107,7 +107,10 @@ define (require) ->
 
     addMetaTags: () ->
       summary = @summary?() or @summary
-      description = @description?() or ''
+      if typeof @description is 'function'
+        description = @description() or ''
+      else
+        description = @description
       location.origin = linksHelper.locationOrigin()
       head = $('head')
 
