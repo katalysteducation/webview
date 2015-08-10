@@ -107,7 +107,7 @@ define (require) ->
 
     addMetaTags: () ->
       summary = @summary?() or @summary
-      description = @description?() or @description
+      description = @description?() or ''
       location.origin = linksHelper.locationOrigin()
       head = $('head')
 
@@ -124,7 +124,7 @@ define (require) ->
         $('meta[property="og:image"]').remove()
         head.append("<meta property=\"og:image\" content=\"#{image}\">")
 
-      if description isnt undefined
+      if description isnt undefined and description isnt ''
         $('meta[name="description"]').remove()
         head.append("<meta name=\"description\" content=\"#{description}\">")
 
