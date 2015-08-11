@@ -17,8 +17,8 @@ define (require) ->
       @route '', 'index', () ->
         @appView.render('home')
 
-      @route 'workspace', 'workspace', () ->
-        @appView.render('workspace')
+      #@route 'workspace', 'workspace', () ->
+      #  @appView.render('workspace')
 
       @route 'contents', 'contents', () ->
         @appView.render('contents')
@@ -26,8 +26,8 @@ define (require) ->
       @route 'tos', 'tos', () ->
         @appView.render('tos')
 
-      @route /^users\/role-acceptance\/(.+)/, 'role-acceptance', () ->
-        @appView.render('role-acceptance')
+      #@route /^users\/role-acceptance\/(.+)/, 'role-acceptance', () ->
+      #  @appView.render('role-acceptance')
 
       # Match and extract uuid and page numbers separated by a colon
       @route linksHelper.componentRegEx, 'media', (uuid, version, page, title, qs) ->

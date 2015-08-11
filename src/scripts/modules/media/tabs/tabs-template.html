@@ -1,4 +1,4 @@
-<div class="media-tabs{{#is status 'publishing'}} publishing{{/is}}">
+<div class="media-tabs">
   <ul>
     {{#if isBook}}
       <li class="tab contents-tab" data-content="contents">
@@ -9,10 +9,6 @@
     <li class="tab metadata-tab" data-content="metadata">
       <span class="tab-title"><span class="fa fa-info-circle"></span>Metadata</span>
     </li>
-
-    <li class="tab tools-tab" data-content="tools">
-      <span class="tab-title"><span class="fa fa-cog"></span>Tools</span>
-    </li>
   </ul>
 
   <div class="contents tab-content">
@@ -21,9 +17,5 @@
 
   <div class="metadata tab-content">
     {{! Metadata View }}
-  </div>
-
-  <div class="tools tab-content">
-    {{! Tools View }}
   </div>
 </div>
