@@ -213,6 +213,11 @@ module.exports = (grunt) ->
           '!dist/scripts/require.js'
           '!dist/scripts/settings.js'
           '!dist/scripts/aloha.js'
+          
+          # Needed until support for bundling locales allow to include all languages to main build: https://github.com/requirejs/i18n/pull/2
+          '!dist/**/dictionary.js'
+          'dist/scripts/nls/dictionary.js'
+          'dist/scripts/nls/root/dictionary.js'
         ]
         filter: 'isFile'
       directories:
@@ -325,9 +330,9 @@ module.exports = (grunt) ->
     'string-replace'
     'targethtml:dist'
     'clean'
-    'uglify:dist'
+    #'uglify:dist'
     'htmlmin:dist'
-    'imagemin'
+    #'imagemin'
   ]
 
   # Default

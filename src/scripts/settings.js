@@ -71,7 +71,21 @@
           '8QUzyvgD': ['exercise'] // only long-codes are currently supported
         },
         url: 'https://tutor-qa.openstax.org'
-      }
+      },
+      
+      // NLS Links.
+      
+      NLSLinks : {
+        "CNX_NLS_LINKS"             : true,
+        "CNX_ANDROID_APP_HREF"  	: "https://play.google.com/store/apps/details?id=org.cnx.android", 
+        "CNX_DEV_BLOG_HREF"     	: "//devblog.cnx.org",
+        "CNX_ITUNES_HREF"       	: "http://itunes.apple.com/us/institution/connexions/id375198208",
+        "CNX_ATRIBUTION_INFO_EMAIL" : "partners@openstaxcollege.org",
+        "CNX_GOOGLE_MAPS_HREF"      : "https://www.google.com/maps/d/embed?mid=zQw3pXjaT2oI.kPScb61jzndk", 
+        "CNX_CONTACT_EMAIL"         : "cnx@cnx.org", 
+        "CNX_DONOR_ACRION_URL"  	: "https://ebank.rice.edu/C21279_upay/web/index.jsp", 
+        "CNX_ADMIN_EMAIL"       	: "invoices@cnx.org", 
+      }    
 
     };
 

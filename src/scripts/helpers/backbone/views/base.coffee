@@ -4,6 +4,8 @@ define (require) ->
   Backbone = require('backbone')
   settings = require('settings')
   linksHelper = require('cs!helpers/links.coffee')
+  # National Language Support.
+  dict = require('i18n!nls/dictionary')
 
   dispose = (obj) ->
     delete obj.parent
@@ -97,6 +99,14 @@ define (require) ->
           else
             data[key] = value
           return # Do not allow implicit returns, which could terminate the loop early
+        
+      # Assign i18n dictionary to data object (only once).
+      if !data.$NLS 
+        data.$NLS = dict
+        
+        #Extend dictionary with values from setting.js
+        if !data.$NLS.CNX_NLS_LINKS
+          _.extend(data.$NLS, settings.NLSLinks)
 
       return data
 

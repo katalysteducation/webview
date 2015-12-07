@@ -4,20 +4,20 @@
   </div>
   <div class="login">
       <div id="skiptocontent">
-        <a href="#main">skip to main content</a>
+        <a href="#main">{{$NLS.CNX_SKIP_TO_MAIN_CONTENT}}</a>
       </div>
     {{#if results}}
       <div id="skiptoresults">
-        <a href="#results">skip to results</a>
+        <a href="#results">{{$NLS.CNX_SKIP_TO_RESULTS}}</a>
       </div>
     {{/if}}
     <ul>
       {{#if username}}
-        <li><a data-bypass="true" href="{{accountProfile}}">Account Profile</a></li>
-        <li><a data-bypass="true" href="/logout">Log Out {{username}}</a></li>
+        <li><a data-bypass="true" href="{{accountProfile}}">{{$NLS.CNX_PROFILE}}</a></li>
+        <li><a data-bypass="true" href="/logout">{{$NLS.CNX_LOGOUT}} {{username}}</a></li>
       {{/if}}
       {{#if url}}
-        <li><a href="{{url}}" title="Switch to the CNX legacy web site">CNX Author | Legacy Site</a></li>
+		<li><a href="{{url}}" title="{{$NLS.CNX_SWITCH_TO_LEGACY}}">{{$NLS.CNX_LEGACY_SITE}}</a></li>
       {{/if}}
     </ul>
   </div>
@@ -27,21 +27,21 @@
       {{! Brand and toggle get grouped for better mobile display }}
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#page-nav">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only">{{$NLS.CNX_TOGGLE_NAV}}</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">OpenStax CNX</a>
+        <a class="navbar-brand" href="/">{{$NLS.CNX_OPENSTAX}}</a>
       </div>
 
       {{! Collect the nav links, forms, and other content for toggling }}
       <div class="collapse navbar-collapse" id="page-nav">
         <ul class="nav nav-justified">
-          <li {{#is page 'browse'}}class="active"{{/is}}><a href="/browse">Search</a></li>
-          <li {{#is page 'about'}}class="active"{{/is}}><a href="/about">About Us</a></li>
-          <li {{#is page 'donate'}}class="active"{{/is}}><a href="/donate">Give</a></li>
-          <li {{#is page 'workspace'}}class="active"{{/is}}><a href="/workspace">My Workspace</a></li>
+          <li {{#is page 'browse'}}class="active"{{/is}}><a href="/browse">{{$NLS.CNX_SEARCH}}</a></li>
+          <li {{#is page 'about'}}class="active"{{/is}}><a href="/about">{{$NLS.CNX_ABOUT_US}}</a></li>
+          <li {{#is page 'donate'}}class="active"{{/is}}><a href="/donate">{{$NLS.CNX_DONATE}}</a></li>
+          <li {{#is page 'workspace'}}class="active"{{/is}}><a href="/workspace">{{$NLS.CNX_MY_WORKSPACE}}</a></li>		  
           <li>
             <a href="http://www.rice.edu">
               <img src="/images/rice.png" class="rice" alt="Rice University" width="74" height="32" />

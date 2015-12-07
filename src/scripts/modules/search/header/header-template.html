@@ -1,19 +1,19 @@
 <div class="header">
   {{#if results}}
-    <h1>Search Results</h1>
+    <h1>{{$NLS.CNX_SEARCH_RESULTS}}</h1>
   {{else}}
-    <h1>Advanced Search</h1>
+    <h1>{{$NLS.CNX_ADVANCED_SEARCH}}</h1>
   {{/if}}
 
   {{! <span class="help">
     <span class="fa fa-question-circle"></span>
-    <span class="tips">Search Tips &amp; Help</span>
+    <span class="tips">$NLS.CNX_SEARCH_TIPS_AND_HELP</span>
   </span> }}
 
   {{#if loaded}}
     {{#if results}}
-      <span><strong>{{results.total}}</strong> results found</span>
-      <a href="/search{{results.criteria}}" class="advanced-search btn">Advanced Search</a>
+      <span><strong>{{results.total}}</strong> {{$NLS.CNX_RESULTS_FOUND}}</span>
+      <a href="/search{{results.criteria}}" class="advanced-search btn">{{$NLS.CNX_ADVANCED_SEARCH}}</a>
     {{/if}}
   {{/if}}
 </div>
