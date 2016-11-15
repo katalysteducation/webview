@@ -284,13 +284,29 @@ module.exports = (grunt) ->
         files: 'test/**/*.js'
 
     # Mocha for testing
-    mocha:
-      browser: ['test/index.html']
-      options:
-        reporter: 'Spec'
-        run: false
-        log: false
-        timeout: 15000
+    # mocha:
+    #   browser: ['test/index.html']
+    #   options:
+    #     reporter: 'Spec'
+    #     run: false
+    #     log: false
+    #     timeout: 15000
+
+    # Test l20n
+    connect:
+      server:
+        options:
+          port: 8000
+          base: '.'
+          # keepalive:true
+
+    mocha_phantomjs:
+      server:
+        options:
+          urls: ['http://localhost:8000/test/index.html']
+          reporter: 'Spec'
+          run: false
+          timeout: 15000
 
   # Dependencies
   # ============
@@ -299,6 +315,8 @@ module.exports = (grunt) ->
   for name of pkg.devDependencies when name.substring(0, 6) is 'grunt-'
     if grunt.file.exists("./node_modules/#{name}")
       grunt.loadNpmTasks(name)
+
+  grunt.loadNpmTasks('grunt-mocha-phantomjs')
 
   # Tasks
   # =====
@@ -315,7 +333,15 @@ module.exports = (grunt) ->
 
     # write template to tests directory and run tests
     grunt.file.write(options.runner, template)
-    grunt.task.run('jshint', 'jsbeautifier', 'coffeelint', 'mocha')
+    # grunt.task.run('jshint', 'jsbeautifier', 'coffeelint', 'mocha')
+    grunt.task.run('connect','mocha_phantomjs:server')
+
+  # L20n.
+  # grunt.registerTask 'l20n', [
+  #   'connect'
+  #   'mocha_phantomjs:server'
+  # ]
+
   # Aloha
   # -----
   grunt.registerTask 'aloha', [

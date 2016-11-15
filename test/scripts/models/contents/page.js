@@ -8,6 +8,9 @@ describe('Page model', function () {
       done();
     });
   });
+  it('should create a page', function () {
+    expect(page).to.exist;
+  });
   it('should not have empty content', function () {
     page.get('content').should.not.equal('');
   });

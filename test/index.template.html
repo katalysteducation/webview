@@ -1,37 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
-    <link rel="stylesheet" href="../bower_components/mocha/mocha.css" />
-    <script type="text/javascript" src="../bower_components/sinonjs/sinon.js"></script>
-    <script type="text/javascript" src="../bower_components/chai/chai.js"></script>
-    <script type="text/javascript" src="../bower_components/mocha/mocha.js"></script>
-    <script type="text/javascript" src="../bower_components/requirejs/require.js"></script>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>L20n Tests</title>
+
+    <!-- L20n language setup -->
+    <meta name="defaultLanguage" content="en-US">
+    <meta name="availableLanguages" content="en-US, pl">
+    <link rel="localization" href="../src/locale/{locale}/dictionary.ftl">
+
+    <!-- Mocha browser UI -->
+    <link href="../node_modules/mocha/mocha.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="mocha"></div>
-	  <script type="text/javascript">
-      mocha.setup('bdd');
+      <!-- Required for browser reporter -->
+      <div id="mocha"></div>
+      <script src="../bower_components/chai/chai.js" type="text/javascript" charset="utf-8"></script>
+      <script src="../bower_components/mocha/mocha.js" type="text/javascript" charset="utf-8"></script>
+      <script src="../bower_components/sinonjs/sinon.js" type="text/javascript" charset="utf-8"></script>
+      <script src="../bower_components/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
 
-      require.config({
-        baseUrl: '../src/scripts',
-        callback: function () {
-          require(['config'], function() {
-            require.config({
-              less: {
-                logLevel: 1,
+      <!-- l20n Compat version -->
+      <script src="../bower_components/babel-polyfill/browser-polyfill.js" type="text/javascript" charset="utf-8"></script>
+      <script src="../bower_components/l20n/dist/compat/web/Template.js" type="text/javascript" charset="utf-8"></script>
+      <script src="../bower_components/l20n/dist/compat/web/l20n.js" type="text/javascript" charset="utf-8"></script>
 
-                globalVars: {
-                  dependencyDir: '"../../bower_components"'
-                }
-              },
+      <!--  Setup mocha -->
+      <script type="text/javascript" charset="utf-8">
+          mocha.ui('bdd');
+          // Provide assertion methods.
+          expect = chai.expect;
+          should = chai.should();
+      </script>
 
-              deps: {{ tests }},
+      <!-- Load tests -->
+      <!-- <script src="l20nSpec.js" type="text/javascript" charset="utf-8"></script> -->
 
-              callback: mocha.run
-            });
+      <!-- Run tests -->
+      <script type="text/javascript" charset="utf-8">
+          // mocha.run();
+          require.config({
+            baseUrl: '../src/scripts',
+            callback: function () {
+              require(['config'], function() {
+                require.config({
+                  less: {
+                    logLevel: 1,
+                    globalVars: {
+                      dependencyDir: '"../../bower_components"'
+                    }
+                  },
+                  deps: {{ tests }},
+                  callback: mocha.run
+                });
+              });
+            }
           });
-        }
-      });
-    </script>
+      </script>
   </body>
 </html>

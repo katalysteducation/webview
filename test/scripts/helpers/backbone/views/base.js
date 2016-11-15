@@ -49,6 +49,10 @@ describe('backbone base view helper tests', function () {
   describe('update page info tests', function () {
     it('should change the page title', function () {
       var myBase = new BaseView();
+      myBase.model = {
+        getPageNumber: function() { return 1; },
+        isBook: function () { return true; }
+      };
 
       // should do nothing
       var titleBefore = document.title;
@@ -149,7 +153,7 @@ describe('backbone base view helper tests', function () {
       document.querySelector('meta[property=\'og:title\']').getAttribute('content').should.equal('Meta tag ' +
         'tests');
       document.querySelector('meta[property=\'og:description\']').getAttribute('content').should.equal('summary');
-      document.querySelector('meta[property=\'og:image\']').getAttribute('content').should.equal('file:///' +
+      document.querySelector('meta[property=\'og:image\']').getAttribute('content').should.equal('http://localhost:8000/' +
         'images/social/logo.png');
     });
     it('should set description meta data', function () {
@@ -176,7 +180,7 @@ describe('backbone base view helper tests', function () {
       document.querySelector('meta[property=\'og:description\']').getAttribute('content').should.equal('second' +
         ' summary');
       document.querySelectorAll('meta[property=\'og:description\']').length.should.equal(1);
-      document.querySelector('meta[property=\'og:image\']').getAttribute('content').should.equal('file:///' +
+      document.querySelector('meta[property=\'og:image\']').getAttribute('content').should.equal('http://localhost:8000/' +
         'images/social/logo.png');
       document.querySelectorAll('meta[property=\'og:image\']').length.should.equal(1);
       document.querySelector('meta[name=\'description\']').getAttribute('content').should.equal('second ' +
